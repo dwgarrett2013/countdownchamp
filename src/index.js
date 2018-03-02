@@ -1,8 +1,10 @@
-import React from 'react';
-import ReactDOM from 'react-dom';
-import './index.css';
-import App from './App';
-import registerServiceWorker from './registerServiceWorker';
+import React from 'react';  //allows you to import all of react's capabilities
+import ReactDOM from 'react-dom'; //controlls putting react code onto BrowserRouter
+import App from './App'; //this import the app component from the file in the same directory
 
-ReactDOM.render(<App />, document.getElementById('root'));
-registerServiceWorker();
+//spits out div text onto the screen.  We are referencing our JSX page
+//We can also change a 2-tagged div element to a 1-tagged element using a self-enclosing tag [<App />]
+ReactDOM.render(
+  <App />,
+  document.getElementById('root')
+);
