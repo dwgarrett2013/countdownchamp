@@ -2,13 +2,32 @@
 
 ## Overview
 
-### Redux
+### Core Features
+
+#### components
+
+reusable features in react code that can be imported/exported across different things
+
+### Files
+
+#### src/index.js
+
+This is the source page that we look at when it comes to viewing
+
+#### App.jsx
+
+This is a React component, similar to HTML, but not quite the same
+
 
 Allows you to build scalable application in 3 steps
 
 ### Description
 
 This app is a countdown timer to a specified date
+
+
+## Helpful urls
+
 
 
 ### How-to
