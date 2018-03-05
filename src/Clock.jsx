@@ -28,6 +28,22 @@ class Clock extends Component {
     setInterval(() => this.getTimeUntil(this.props.deadline), 1000);
   }
 
+  //function that adds a leading zero to a number to ensure it is displayed neatly
+  leadingZero(num) {
+    //console.log(num);
+
+    //conventional logic approach
+    /*
+    if(num<10) {
+      return ('0'+ num);
+    }
+    return num;
+    */
+
+    //turnary experession approach
+    return num < 10 ? ('0' + num) : num;
+  }
+
   //es6 and later does not allow for you to use the var keyword
   //you must use 'let' (variables that need updating) or 'const' (variables that do not need updating)
   getTimeUntil(deadline) {
@@ -58,12 +74,14 @@ class Clock extends Component {
   //use this.state to hold the values of the state field
   render() {
     //this.whatever takes functions from the same class/component
+    //one can add leadingZero() methods so that the displayed value is leading zeroes, for security reasons, this logic should be display-based, as opposed to actual implementable logic
+    //if the deadline has already passed, then it will display a negative prior
     return (
       <div>
-        <div className="Clock-days">{this.state.days} days</div>
-        <div className="Clock-hours">{this.state.hours} hours</div>
-        <div className="Clock-minutes">{this.state.minutes} minutes</div>
-        <div className="Clock-seconds">{this.state.seconds} seconds</div>
+        <div className="Clock-days">{this.leadingZero(this.state.days)} days</div>
+        <div className="Clock-hours">{this.leadingZero(this.state.hours)} hours</div>
+        <div className="Clock-minutes">{this.leadingZero(this.state.minutes)} minutes</div>
+        <div className="Clock-seconds">{this.leadingZero(this.state.seconds)} seconds</div>
       </div>
     )
   }

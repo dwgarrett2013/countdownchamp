@@ -4,6 +4,8 @@ import App from './App'; //this import the app component from the file in the sa
 
 //spits out div text onto the screen.  We are referencing our JSX page
 //We can also change a 2-tagged div element to a 1-tagged element using a self-enclosing tag [<App />]
+
+//this imports the root element identified in the public folder index.hmtl page
 ReactDOM.render(
   <App />,
   document.getElementById('root')

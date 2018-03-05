@@ -2,6 +2,22 @@
 
 ## Overview
 
+###Other notes (extensibility)
+
+If you want to change style guids, explore other stylesheets and CSS Options
+
+### Installation steps
+
+Use the below link to set up react bootstrap
+``https://react-bootstrap.github.io/getting-started/introduction``
+
+The commands to install are:
+``$ npm install --save react react-dom
+$ npm install --save react-bootstrap``
+
+Then you should copy the latest stylesheet link from the above URL
+
+
 ### Core Features
 
 #### components
