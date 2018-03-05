@@ -43,13 +43,16 @@ changeDeadline() {
   //adding onChange variable with an event, initially just logging to console output in the browser conosle logs (via inspect element, focusing on the event and the target value, originally a json)
   //change the onChange to set state from console.log
   //add the Clock
+  //props arguements in the constructors can be passed from parent application state to other componenets via the tags (e.g. the clock props argument)
   render() {
     return (
       <div className="App">
         <div className="App-title">
           Coundown to {this.state.deadline}
         </div>
-        <Clock />
+        <Clock
+          deadline={this.state.deadline}
+        />
         <div>
           <input placeholder='new date'
           onChange={event => this.setState({newDeadline: event.target.value})}

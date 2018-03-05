@@ -16,8 +16,48 @@ class Clock extends Component {
     }
   }
 
+  //loads data before rendering
+  componentWillMount() {
+    this.getTimeUntil(this.props.deadline);
+  }
+
+  //runs after the component completely renders to the applciation (e.g. we want the application to update regularly)
+  //in our case we want to update every second after the component mounts
+  componentDidMount() {
+    //executes getTimeUntil() every second (1000 ms since ms is the unit)
+    setInterval(() => this.getTimeUntil(this.props.deadline), 1000);
+  }
+
+  //es6 and later does not allow for you to use the var keyword
+  //you must use 'let' (variables that need updating) or 'const' (variables that do not need updating)
+  getTimeUntil(deadline) {
+    //we are only calculating time once so it will not changed
+    //Date is a javascript class that we can access
+    const time = Date.parse(deadline) - Date.parse(new Date());
+    //console.log takes a the header that we attach to the log output and the value as arguments
+    //console.log('time',time);
+    //Math.floor() returns largest internger less than or equal to a given number (takes the number divided without breaking up remainder)
+    //Take the modulo of the number to get the remainder
+
+    //calculations for each of the number of seconds until deadline (negative if already passed)
+    const seconds = Math.floor((time/1000) % 60);
+    const minutes = Math.floor((time/1000/60) % 60);
+    const hours = Math.floor(time/(1000*60*60) % 24);
+    const days = Math.floor(time/(1000*60*60*24));
+
+    //log the output if desired
+    //console.log('seconds', seconds, 'minutes', minutes, 'hours', hours, 'days', days);
+
+    //setState cannot be called outside the return portion of the render() method, need to solve with lifeycle method, must be called in the componentWillMount() method so that it will be loaded before the data is rendered to the screen (updated before rendering).  If this is done in render, an infinite loop will be created
+    //this.setState({days: days, hours: hours, minutes: minutes, seconds: seconds});
+
+    //the below expression is the same as above in ES6 because they are the same keyword and keyvalue name
+    this.setState({days, hours, minutes, seconds});
+  }
+
   //use this.state to hold the values of the state field
   render() {
+    //this.whatever takes functions from the same class/component
     return (
       <div>
         <div className="Clock-days">{this.state.days} days</div>
