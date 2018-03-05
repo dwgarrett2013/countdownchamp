@@ -1,6 +1,7 @@
 import React, { Component } from 'react';  //no need to import ReactDOM since index already covers this
 import Clock from './Clock';  //import the clock class
 import './App.css'; //This allows us to import the App.css file from the same directory
+import { Form, FormControl, Button } from 'react-bootstrap'; //this allows us to import react-bootstrap capabilities that were defined in the public index.html
 
 //we are creating ESX classes in an object-oriented model
 //We are extending React's component class
@@ -23,7 +24,7 @@ class App extends Component {
     //state is an Object, could be a string, object, or another Object
     this.state={
       //adding first state variable called 'deadline'
-      deadline: 'December 25, 2017',
+      deadline: 'December 25, 2020',
       //adding a second state variable to receive changed input
       newDeadline: '' //initially set as an empty string
     }
@@ -44,6 +45,9 @@ changeDeadline() {
   //change the onChange to set state from console.log
   //add the Clock
   //props arguements in the constructors can be passed from parent application state to other componenets via the tags (e.g. the clock props argument)
+  //we can add form inline totrue, don't need the "true" if already true
+  //We will also add FormControl and Button tags from react-bootstrap
+  //adding className ("Deadline-Input") allows us to control font-size of input field in our css file
   render() {
     return (
       <div className="App">
@@ -53,14 +57,16 @@ changeDeadline() {
         <Clock
           deadline={this.state.deadline}
         />
-        <div>
-          <input placeholder='new date'
-          onChange={event => this.setState({newDeadline: event.target.value})}
-        />
-          <button onClick={() => this.changeDeadline()}>
+        <Form inline={true}>
+          <FormControl
+          className="Deadline-input"
+            placeholder='new date'
+            onChange={event => this.setState({newDeadline: event.target.value})}
+          />
+          <Button onClick={() => this.changeDeadline()}>
             Submit
-          </button>
-        </div>
+          </Button>
+        </Form>
       </div>
     )
   }
