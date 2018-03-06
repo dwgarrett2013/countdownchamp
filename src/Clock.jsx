@@ -76,6 +76,7 @@ class Clock extends Component {
     //this.whatever takes functions from the same class/component
     //one can add leadingZero() methods so that the displayed value is leading zeroes, for security reasons, this logic should be display-based, as opposed to actual implementable logic
     //if the deadline has already passed, then it will display a negative prior
+    //console.log('clock state', this.state);
     return (
       <div>
         <div className="Clock-days">{this.leadingZero(this.state.days)} days</div>

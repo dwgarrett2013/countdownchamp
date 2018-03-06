@@ -8,12 +8,12 @@
   font-size: 50px;
 }
 
-.Clock-days, .Clock-hours, .Clock-minutes, .Clock-seconds {
+.Clock-days, .Clock-hours, .Clock-minutes, .Clock-seconds, .Stopwatch-hours, .Stopwatch-minutes, .Stopwatch-seconds {
     display: inline;
     margin-left: 10px;
 }
 
-.Deadline-input {
+.Deadline-input, .Stopwatch-input {
   font-size: 25px;
   margin: 5px;
 }

@@ -1,5 +1,6 @@
 import React, { Component } from 'react';  //no need to import ReactDOM since index already covers this
 import Clock from './Clock';  //import the clock class
+import Stopwatch from './Stopwatch'; //impor the stopwatch class
 import './App.css'; //This allows us to import the App.css file from the same directory
 import { Form, FormControl, Button } from 'react-bootstrap'; //this allows us to import react-bootstrap capabilities that were defined in the public index.html
 
@@ -26,7 +27,18 @@ class App extends Component {
       //adding first state variable called 'deadline'
       deadline: 'December 25, 2020',
       //adding a second state variable to receive changed input
-      newDeadline: '' //initially set as an empty string
+      newDeadline: '', //initially set as an empty string
+
+      stopwatchHours: 0,
+      stopwatchMinutes: 0,
+      stopwatchSeconds: 0,
+      currentTime: new Date(),
+
+      newStopwatchHours: null,
+      newStopwatchMinutes: null,
+      newStopwatchSeconds: null
+
+
     }
   }
 
@@ -35,7 +47,17 @@ changeDeadline() {
   //you must never change or update state directly, must always be done via setState, not via {this.state.deadline}
   //console.log('state', this.state);
   //This actuually sets the deadline state to the state of the newdeadline
+  //console.log('before', this.state);
   this.setState({deadline: this.state.newDeadline});
+  //console.log('after', this.state);
+}
+
+//changes the state of the stopwatchCountdownClock
+changeStopWatch() {
+  //you must never change or update state directly, must always be done via setState, not via {this.state.deadline}
+  //console.log('before', this.state.newStopWatchCountdownClock);
+  this.setState({stopwatchHours: this.state.newStopwatchHours, stopwatchMinutes: this.state.newStopwatchMinutes, stopwatchSeconds: this.state.newStopwatchSeconds, currentTime: new Date()});
+  //console.log('after', this.state);
 }
 
   //{this.state.deadline} is a variable represented by the state value
@@ -49,6 +71,7 @@ changeDeadline() {
   //We will also add FormControl and Button tags from react-bootstrap
   //adding className ("Deadline-Input") allows us to control font-size of input field in our css file
   render() {
+    console.log('appState', this.state);
     return (
       <div className="App">
         <div className="App-title">
@@ -59,11 +82,40 @@ changeDeadline() {
         />
         <Form inline={true}>
           <FormControl
-          className="Deadline-input"
+            className="Deadline-input"
             placeholder='new date'
             onChange={event => this.setState({newDeadline: event.target.value})}
           />
           <Button onClick={() => this.changeDeadline()}>
+            Submit
+          </Button>
+        </Form>
+        <div className="App-title">
+          Stopwatch Countdown
+        </div>
+        <Stopwatch
+          stopwatchHours={this.state.stopwatchHours}
+          stopwatchMinutes={this.state.stopwatchMinutes}
+          stopwatchSeconds={this.state.stopwatchSeconds}
+          currentTime={this.state.currentTime}
+        />
+        <Form  inline={true}>
+          <FormControl
+            className="Stopwatch-input"
+            placeholder='Hours'
+            onChange={event => this.setState({newStopwatchHours: event.target.value})}
+          />
+          <FormControl
+            className="Stopwatch-input"
+            placeholder='Minutes'
+            onChange={event => this.setState({newStopwatchMinutes: event.target.value})}
+          />
+          <FormControl
+            className="Stopwatch-input"
+            placeholder='Seconds'
+            onChange={event => this.setState({newStopwatchSeconds: event.target.value})}
+          />
+          <Button onClick={() => this.changeStopWatch()}>
             Submit
           </Button>
         </Form>
