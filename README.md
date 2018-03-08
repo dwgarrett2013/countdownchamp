@@ -1,12 +1,12 @@
 # countdownchamp
 
-## Overview
+## Project Description
 
-###Other notes (extensibility)
+This application allows the user to do the following
+1.  Set a date in the past or future ([month_name] [dd], [yyyy]) and determine the number of days, hours, minutes, and seconds until that time.  These values will be updated every second.
+2.  Set a stopwatch that counts down to zero and updates every second.
 
-If you want to change style guids, explore other stylesheets and CSS Options
-
-### Installation steps
+## Installation steps
 
 Use the below link to set up react bootstrap
 ``https://react-bootstrap.github.io/getting-started/introduction``
@@ -17,8 +17,9 @@ $ npm install --save react-bootstrap``
 
 Then you should copy the latest stylesheet link from the above URL
 
+## Technical Information
 
-### Core Features
+### General knowledge
 
 #### components
 
@@ -30,21 +31,28 @@ reusable features in react code that can be imported/exported across different t
 
 This is the source page that we look at when it comes to viewing
 
-#### App.jsx
+#### src/App.jsx
 
-This is a React component, similar to HTML, but not quite the same
+This React component is the central component for the entire application.  It incorporates the other React components
+
+#### src/Clock.jsx
+
+This component handles the countdown clock component
+
+#### src/Stopwatch.jsx
+
+This component handles a stopwatch component
+
+#### src/App.css
+
+This is the stylesheets file
+
+## Other notes (extensibility)
+
+If you want to change style guids, explore other stylesheets and CSS Options
 
 
-Allows you to build scalable application in 3 steps
-
-### Description
-
-This app is a countdown timer to a specified date
-
-
-## Helpful urls
-
-
+# Guide to Create App
 
 ### How-to
 

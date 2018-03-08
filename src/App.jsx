@@ -71,7 +71,7 @@ changeStopWatch() {
   //We will also add FormControl and Button tags from react-bootstrap
   //adding className ("Deadline-Input") allows us to control font-size of input field in our css file
   render() {
-    console.log('appState', this.state);
+    //console.log('appState', this.state);
     return (
       <div className="App">
         <div className="App-title">
