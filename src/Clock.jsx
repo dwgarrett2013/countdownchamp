@@ -56,10 +56,10 @@ class Clock extends Component {
     //Take the modulo of the number to get the remainder
 
     //calculations for each of the number of seconds until deadline (negative if already passed)
-    const seconds = Math.floor((time/1000) % 60);
-    const minutes = Math.floor((time/1000/60) % 60);
-    const hours = Math.floor(time/(1000*60*60) % 24);
-    const days = Math.floor(time/(1000*60*60*24));
+    let seconds = Math.floor((time/1000) % 60);
+    let minutes = Math.floor((time/1000/60) % 60);
+    let hours = Math.floor(time/(1000*60*60) % 24);
+    let days = Math.floor(time/(1000*60*60*24));
 
     //log the output if desired
     //console.log('seconds', seconds, 'minutes', minutes, 'hours', hours, 'days', days);
@@ -68,6 +68,14 @@ class Clock extends Component {
     //this.setState({days: days, hours: hours, minutes: minutes, seconds: seconds});
 
     //the below expression is the same as above in ES6 because they are the same keyword and keyvalue name
+
+    if(days<=0 && hours<=0 && minutes<=0 && seconds<=0){
+      days=0;
+      hours=0;
+      minutes=0;
+      seconds=0;
+    }
+
     this.setState({days, hours, minutes, seconds});
   }
 

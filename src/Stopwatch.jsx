@@ -8,7 +8,7 @@ class Stopwatch extends Component {
 
   constructor(props) {
     super(props);
-    console.log('props', props)
+    //console.log('props', props)
     this.state= {
       hours: 0,
       minutes: 0,
@@ -18,8 +18,8 @@ class Stopwatch extends Component {
       stopwatchAtZero: false
     }
     //need to add code the adjust the currentTime
-    console.log('currentTime',this.props.currentTime);
-    console.log('currenttime plus a few', new Date(this.props.currentTime.getTime()+(1000*1)+(1000*60*1)+(1000*60*60*1)));
+    //console.log('currentTime',this.props.currentTime);
+    //console.log('currenttime plus a few', new Date(this.props.currentTime.getTime()+(1000*1)+(1000*60*1)+(1000*60*60*1)));
 
   }
 
@@ -43,7 +43,7 @@ class Stopwatch extends Component {
   getTimeUntil(stopwatchHours, stopwatchMinutes, stopwatchSeconds) {
     const futureTime=new Date(this.props.currentTime.getTime()+(1000*stopwatchSeconds)+(1000*60*stopwatchMinutes)+(1000*60*60*stopwatchHours));
     const time = Date.parse(futureTime) - Date.parse(new Date());
-    console.log('time',time);
+    //console.log('time',time);
 
     //calculations for each of the number of seconds until deadline (negative if already passed)
     let seconds = Math.floor((time/1000) % 60);
@@ -74,18 +74,18 @@ class Stopwatch extends Component {
     //console.log("hello" + this.state.secondsLeft);
 
     if(this.state.stopwatchAtZero===true) {
-      console.log("hello");
       return (
         <div>
-          <div className="Stopwatch-hours">{this.leadingZero(this.state.hours)} hours</div>
-          <div className="Stopwatch-minutes">{this.leadingZero(this.state.minutes)} minutes</div>
-          <div className="Stopwatch-seconds">{this.leadingZero(this.state.seconds)} seconds</div>
+          <div>
+            <div className="Stopwatch-hours">{this.leadingZero(this.state.hours)} hours</div>
+            <div className="Stopwatch-minutes">{this.leadingZero(this.state.minutes)} minutes</div>
+            <div className="Stopwatch-seconds">{this.leadingZero(this.state.seconds)} seconds</div>
+          </div>
           <div className="Stopwatch-alarm">Stopwatch at Zero!</div>
         </div>
       );
     }
     else {
-      console.log(this.state.stopwatchAtZero);
       return (
         <div>
           <div className="Stopwatch-hours">{this.leadingZero(this.state.hours)} hours</div>
